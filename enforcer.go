@@ -116,7 +116,7 @@ func (e *Enforcer) InitWithModelAndAdapter(m model.Model, adapter persist.Adapte
 	e.adapter = adapter
 
 	e.model = m
-	e.model.PrintModel()
+	//e.model.PrintModel()
 	e.fm = model.LoadFunctionMap()
 
 	e.initialize()
@@ -159,7 +159,7 @@ func NewModel(text ...string) model.Model {
 func (e *Enforcer) LoadModel() {
 	e.model = NewModel()
 	e.model.LoadModel(e.modelPath)
-	e.model.PrintModel()
+	//e.model.PrintModel()
 	e.fm = model.LoadFunctionMap()
 }
 
@@ -213,7 +213,7 @@ func (e *Enforcer) LoadPolicy() error {
 		return err
 	}
 
-	e.model.PrintPolicy()
+	//e.model.PrintPolicy()
 	if e.autoBuildRoleLinks {
 		e.BuildRoleLinks()
 	}
@@ -237,7 +237,7 @@ func (e *Enforcer) LoadFilteredPolicy(filter interface{}) error {
 		return err
 	}
 
-	e.model.PrintPolicy()
+	//e.model.PrintPolicy()
 	if e.autoBuildRoleLinks {
 		e.BuildRoleLinks()
 	}
@@ -419,7 +419,7 @@ func (e *Enforcer) Enforce(rvals ...interface{}) bool {
 			}
 		}
 		reqStr += fmt.Sprintf(" ---> %t", result)
-		util.LogPrint(reqStr)
+		//util.LogPrint(reqStr)
 	}
 
 	return result
